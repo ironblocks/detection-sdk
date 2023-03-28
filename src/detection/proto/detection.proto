@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package ironblocks;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/struct.proto";
+
+service Detection {
+    rpc runDetection(DetectionRequest) returns (DetectionResponse) {}
+}
+
+message DetectionRequest {
+	required TransactionInspectionContext txContext = 1;
+	string detectorId = 2;
+}
+
+message DetectionResponse {
+	required bool detected = 1;
+	string message = 2;
+	double transferredUSD = 3;
+	DetectionSubject subject = 4;
+	google.protobuf.Struct extra = 5;
+}
+
+message TransactionInspectionContext {
+	required string hash = 1;
+	required google.protobuf.Timestamp timestamp = 2;
+	required TransactionTrace trace = 3;
+}
+
+message Asset {
+	required int32 chainId = 1;
+	required string address = 2;
+	repeated string admins = 3;
+}
+
+message Protocol {
+	required string id = 1;
+	required string name = 2;
+}
+
+message TransactionTrace {
+	string type = 1;
+	string from = 2;
+	string to = 3;
+	bytes gas = 4;
+	bytes gasprice = 5;
+	bytes hash = 6;
+	bytes value = 7;
+	string data = 8;
+	bytes input = 9;
+	bytes nonce = 10;
+	string error = 11;
+	repeated TransactionTrace calls = 12;
+	repeated string detected = 13;
+}
+
+message DetectionSubject {
+	string address = 1;
+}

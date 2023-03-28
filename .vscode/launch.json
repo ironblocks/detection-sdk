@@ -1,0 +1,55 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run Detection",
+            "cwd": "${workspaceRoot}",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "./src/main.ts",
+            "args": [],
+            "runtimeArgs": [
+                // Tell V8 to compile ahead of time so breakpoints work correctly.
+                "--nolazy",
+                // Ensure ts-node is loaded before trying to execute.
+                "--require",
+                "ts-node/register"
+            ],
+            "env": {
+                "NODE_ENV": "dev"
+            },
+            "sourceMaps": true,
+            "outputCapture": "std"
+        },
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run Unit Tests",
+            "cwd": "${workspaceRoot}",
+            "program": "./node_modules/.bin/mocha",
+            "args": [
+                "--extension",
+                "ts",
+                "--watch",
+                "src",
+                "--timeout",
+                "10000",
+                "--require",
+                "ts-node/register",
+                "./tests/unit-tests/**/*.ts",
+            ],
+            "env": {
+                "NODE_ENV": "test"
+            },
+            "internalConsoleOptions": "openOnSessionStart",
+            "sourceMaps": true,
+        },
+    ]
+}

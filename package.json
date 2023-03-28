@@ -3,20 +3,22 @@
     "version": "1.0.0",
     "description": "External Detection System",
     "engines": {
-          "node": ">=16.15.1",
-          "npm": ">=8.11.0"
+        "node": ">=16.15.1",
+        "npm": ">=8.11.0"
     },
     "author": "Ironblocks",
     "license": "ISC",
     "scripts": {
-          "build": "npx tsc --project ./",
-          "start": "node ./build/src/detection/server.js"
+        "build": "npx tsc --project ./",
+        "start": "node ./build/src/main.js"
     },
     "dependencies": {
-      "@grpc/grpc-js": "^1.8.13",
-      "@grpc/proto-loader": "^0.7.6"
+        "@grpc/grpc-js": "^1.8.13",
+        "@grpc/proto-loader": "^0.7.6",
+        "dotenv": "^16.0.3",
+        "ts-node": "^10.9.1"
     },
     "devDependencies": {
-      "typescript": "^5.0.2"
+        "typescript": "^5.0.2"
     }
 }

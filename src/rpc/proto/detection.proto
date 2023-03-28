@@ -11,6 +11,7 @@ service Detection {
 message DetectionRequest {
 	required TransactionInspectionContext txContext = 1;
 	string detectorId = 2;
+	google.protobuf.Struct detectorConfig = 3;
 }
 
 message DetectionResponse {

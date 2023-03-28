@@ -5,7 +5,11 @@ import { getDetectorClass } from '../detection/factory';
 import TransactionInspectionContext from '../lib/transaction-context';
 
 export async function detectionHandler(req, callback) {
-    const { detectorId, txContext: rawTxContext } = req.request as DetectionRequest__Output;
+    const {
+        detectorId,
+        detectorConfig,
+        txContext: rawTxContext,
+    } = req.request as DetectionRequest__Output;
 
     try {
         const txContext = new TransactionInspectionContext(rawTxContext);
@@ -13,6 +17,7 @@ export async function detectionHandler(req, callback) {
         const detector = new (getDetectorClass(detectorId))(
             txContext,
             txContext.protocol,
+            detectorConfig,
         );
         detector.runDetection();
 

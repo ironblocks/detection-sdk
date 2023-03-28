@@ -3,6 +3,8 @@ import type { Asset, Protocol } from '../../@types/models';
 import type { Transaction, TransactionInspectionContext } from '../../@types/web3';
 import { Logger, getLogger } from '../../logger';
 
+type DetectorConfig = any;
+
 export enum DetectionStatus {
     DETECTED = 'detected',
     NOT_DETECTED = 'notDetected',
@@ -15,6 +17,8 @@ export default abstract class Detector {
 
     protected inspectedProtocol: Protocol;
 
+    protected config: DetectorConfig;
+
     protected status: DetectionStatus;
 
     private isInvoked: boolean;
@@ -24,9 +28,11 @@ export default abstract class Detector {
     constructor(
         txContext?: TransactionInspectionContext,
         protocol?: Protocol,
+        config?: DetectorConfig,
     ) {
         this.txContext = txContext;
         this.inspectedProtocol = protocol;
+        this.config = config;
         this.status = DetectionStatus.PENDING;
         this.isInvoked = false;
         this.logger = getLogger(this.constructor.name);
@@ -84,5 +90,6 @@ export interface DetectorClass {
     new (
         txContext: TransactionInspectionContext,
         protocol?: Protocol,
+        config?: DetectorConfig
     ): Detector;
 }

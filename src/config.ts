@@ -26,6 +26,14 @@ export const serverConfig = {
     PORT: parseInt(process.env.PORT ?? '9091'),
 };
 
+/**
+ * Log.
+ */
+export const logConfig = {
+    SILENT: process.env.LOGGER_SILENT?.toLocaleLowerCase() === 'true',
+    LEVEL: process.env.LOGGER_LEVEL?.toLocaleLowerCase() ?? 'debug',
+};
+
 function validateSubConfig(subConfig: { [key: string]: any}) {
     Object.entries(subConfig).forEach(([key, value]) => {
         if (value === undefined) {
@@ -37,6 +45,7 @@ function validateSubConfig(subConfig: { [key: string]: any}) {
 export function validateConfig() {
     const configurations = [
         serverConfig,
+        logConfig,
     ];
 
     configurations.forEach((config) => validateSubConfig(config));

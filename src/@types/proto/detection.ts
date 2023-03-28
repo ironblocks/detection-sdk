@@ -9,23 +9,22 @@ type SubtypeConstructor<Constructor extends new (...args: any) => any, Subtype> 
 
 export interface ProtoGrpcType {
     google: {
-        protobuf: {
-            ListValue: MessageTypeDefinition
-            NullValue: EnumTypeDefinition
-            Struct: MessageTypeDefinition
-            Timestamp: MessageTypeDefinition
-            Value: MessageTypeDefinition
-        }
+      protobuf: {
+          ListValue: MessageTypeDefinition
+          NullValue: EnumTypeDefinition
+          Struct: MessageTypeDefinition
+          Value: MessageTypeDefinition
+      }
     }
     ironblocks: {
-        Asset: MessageTypeDefinition
-        Detection: SubtypeConstructor<typeof grpc.Client, _ironblocks_DetectionClient> & { service: _ironblocks_DetectionDefinition }
-        DetectionRequest: MessageTypeDefinition
-        DetectionResponse: MessageTypeDefinition
-        DetectionSubject: MessageTypeDefinition
-        Protocol: MessageTypeDefinition
-        TransactionInspectionContext: MessageTypeDefinition
-        TransactionTrace: MessageTypeDefinition
+      Asset: MessageTypeDefinition
+      Detection: SubtypeConstructor<typeof grpc.Client, _ironblocks_DetectionClient> & { service: _ironblocks_DetectionDefinition }
+      DetectionRequest: MessageTypeDefinition
+      DetectionResponse: MessageTypeDefinition
+      DetectionSubject: MessageTypeDefinition
+      Protocol: MessageTypeDefinition
+      TransactionInspectionContext: MessageTypeDefinition
+      TransactionTrace: MessageTypeDefinition
     }
 }
 

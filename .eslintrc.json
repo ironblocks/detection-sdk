@@ -1,0 +1,50 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "requireConfigFile": false
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "airbnb",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    },
+    "rules": {
+        // Indent with 4 spaces
+        "indent": ["error", 4],
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "import/no-extraneous-dependencies": [
+            "error",
+            { "devDependencies": ["**/test-*.ts"] }
+        ],
+        "no-constructor-return": 0,
+        "no-underscore-dangle": "off",
+        "no-shadow": "off",
+        "no-param-reassign": 0,
+        "no-multi-assign": 0,
+        "no-restricted-syntax": ["ForInStatement"],
+        "radix": 0,
+        "@typescript-eslint/no-shadow": ["error"],
+        "@typescript-eslint/no-non-null-assertion": "off"
+    }    
+}

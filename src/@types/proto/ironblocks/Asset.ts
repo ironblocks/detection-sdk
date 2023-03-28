@@ -1,4 +1,4 @@
-// Original file: src/detection/proto/detection.proto
+// Original file: src/rpc/proto/detection.proto
 
 
 export interface Asset {

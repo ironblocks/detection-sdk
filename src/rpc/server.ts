@@ -6,8 +6,8 @@ import { loadPackageDefinition, Server, ServerCredentials } from '@grpc/grpc-js'
 // Internal.
 import type { ProtoGrpcType } from '../@types/proto/detection';
 import type { DetectionDefinition } from '../@types/proto/ironblocks/Detection';
-import type { DetectionRequest } from '../@types/proto/ironblocks/DetectionRequest';
-import type { DetectionResponse } from '../@types/proto/ironblocks/DetectionResponse';
+import { Logger, getLogger } from '../logger';
+import { detectionHandler } from './handler';
 
 const PROTO_FILE_NAME = 'detection.proto';
 const PROTO_FILE_PATH = path.join(__dirname, 'proto', PROTO_FILE_NAME);
@@ -31,39 +31,40 @@ export default class DetectionServer {
 
     private server: Server;
 
+    private logger: Logger;
+
     constructor(host: string, port: number) {
         this.listeningAddress = `${host}:${port}`;
         this.server = new Server();
+        this.logger = getLogger(this.constructor.name);
     }
 
     async start() {
         this.setup();
+        this.bind();
+    }
 
+    private async setup() {
+        const service: DetectionDefinition = packageObject.Detection.service;
+        this.server.addService(service, {
+            runDetection: detectionHandler,
+        });
+    }
+
+    private bind() {
         this.server.bindAsync(
             this.listeningAddress,
             ServerCredentials.createInsecure(),
             (err, port) => {
                 if (err) {
-                    console.error('Failed to bind address');
+                    this.logger.error('Failed to bind address', err);
                     throw err;
                 }
 
-                console.log('Server listenning', port);
+                this.logger.info('Server listenning', { port });
                 this.server.start();
             }
         );
-    }
-
-    private async setup() {
-        this.server.addService(packageObject.Detection.service as DetectionDefinition, {
-            runDetection: (req, callback) => {
-                console.log(req);
-                const response: DetectionResponse = {
-                    detected: true,
-                }
-                callback(null, response);
-            }
-        });
     }
 }
 

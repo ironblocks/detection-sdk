@@ -1,4 +1,4 @@
-// Original file: src/detection/proto/detection.proto
+// Original file: src/rpc/proto/detection.proto
 
 import type { TransactionInspectionContext as _ironblocks_TransactionInspectionContext, TransactionInspectionContext__Output as _ironblocks_TransactionInspectionContext__Output } from '../ironblocks/TransactionInspectionContext';
 

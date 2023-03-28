@@ -16,7 +16,9 @@
         "@grpc/grpc-js": "^1.8.13",
         "@grpc/proto-loader": "^0.7.6",
         "dotenv": "^16.0.3",
-        "ts-node": "^10.9.1"
+        "lodash": "^4.17.21",
+        "ts-node": "^10.9.1",
+        "winston": "^3.8.2"
     },
     "devDependencies": {
         "typescript": "^5.0.2"

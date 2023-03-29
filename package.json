@@ -10,6 +10,7 @@
     "license": "ISC",
     "scripts": {
         "build": "npx tsc --project ./",
+        "postbuild": "rsync -ar --prune-empty-dirs --include=*.proto --exclude=*.ts src/ build/src/",
         "start": "node ./build/src/main.js"
     },
     "dependencies": {

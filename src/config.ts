@@ -23,7 +23,7 @@ dotenv.config({ path: path.join(__dirname, '..', dotEnvFilename()) });
  */
 export const serverConfig = {
     HOST: process.env.HOST ?? 'localhost',
-    PORT: parseInt(process.env.PORT ?? '9091'),
+    PORT: parseInt(process.env.PORT ?? '8000'),
 };
 
 /**

@@ -1,6 +1,7 @@
 // Internal.
 import type { DetectionRequest__Output } from '../@types/proto/ironblocks/DetectionRequest';
 import type { DetectionResponse } from '../@types/proto/ironblocks/DetectionResponse';
+import type { DetectorClass } from '../detection/detectors/detector';
 import { getDetectorClass } from '../detection/factory';
 import TransactionInspectionContext from '../lib/transaction-context';
 
@@ -14,7 +15,8 @@ export async function detectionHandler(req, callback) {
     try {
         const txContext = new TransactionInspectionContext(rawTxContext);
 
-        const detector = new (getDetectorClass(detectorId))(
+        const Class: DetectorClass = getDetectorClass(detectorId);
+        const detector = new Class(
             txContext,
             txContext.protocol,
             detectorConfig,

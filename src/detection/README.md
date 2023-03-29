@@ -10,7 +10,7 @@ To add a new detector just follow the following steps:
 
    export default class ExampleDetector extends Detector {
       detect(): void {
-         this.status = DetectionStatus.DETECTED;
+         this.status = DetectionStatus.NOT_DETECTED;
       }
 
       formatDetectionMessage(): string {
@@ -22,7 +22,7 @@ To add a new detector just follow the following steps:
 
 2. The `Ironblocks` team will provide you with a `unique-id` for the new detector, e.g.:
    ```bash
-   "external-detector-1-12345"
+   "ib-1-12345"
    ```
 
 3. Add the detector to the [detectors factory](./factory.ts):
@@ -39,7 +39,7 @@ To add a new detector just follow the following steps:
       // Insert code (end)
       ...
       default:
-         return ExampleDetector;
+         ...
       }
    }
    ```

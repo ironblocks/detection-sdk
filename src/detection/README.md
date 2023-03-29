@@ -34,7 +34,7 @@ To add a new detector just follow the following steps:
       switch (id) {
       ...
       // Insert code (start)
-      case 'external-detector-1-12345':
+      case 'ib-1-12345':
          return ExampleDetector;
       // Insert code (end)
       ...

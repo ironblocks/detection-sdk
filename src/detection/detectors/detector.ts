@@ -73,7 +73,7 @@ export default abstract class Detector {
      */
     protected abstract detect(): void | Promise<void>;
 
-    protected getAsset(address: string): Asset {
+    protected getAsset(address: string): Asset | null {
         return this.txContext.asset(address);
     }
 

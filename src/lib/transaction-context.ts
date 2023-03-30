@@ -62,8 +62,8 @@ export default class TransactionInspectionContext implements ITransactionInspect
         return this._protocol;
     }
 
-    asset(address: string) {
-        return this._addressToAssetMap[address];
+    asset(address: string): Asset | null {
+        return this._addressToAssetMap[address] ?? null;
     }
 
     isAsset(address: string) {

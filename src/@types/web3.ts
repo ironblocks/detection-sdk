@@ -17,7 +17,6 @@ export interface Transaction {
 
 export interface TransactionTrace extends Transaction {
     calls?: Array<TransactionTrace>,
-    detected?: Array<string>
 }
 
 export interface FetchedTransaction {
@@ -29,6 +28,6 @@ export interface FetchedTransaction {
 export interface TransactionInspectionContext extends FetchedTransaction {
     assets: Array<Asset>,
     protocol: Protocol,
-    asset: (address: string) => Asset,
+    asset: (address: string) => Asset | null,
     isAsset: (address: string) => boolean,
 }

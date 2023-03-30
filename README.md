@@ -1,5 +1,9 @@
 # RPC Detection Service
 
+<img src="https://www.ironblocks.com/images/ironblocks-logo.svg" width="80">
+
+<br>
+
 ## Description
 This is an RPC server that provides a simple API for running different types of detectors on demand.
 <br>

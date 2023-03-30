@@ -1,5 +1,10 @@
 # Detection System
 
+## Detector
+[Read about detector internals](./detectors/README.md)
+
+<br>
+
 ## Guide
 To add a new detector just follow the following steps:
 

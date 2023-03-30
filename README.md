@@ -13,6 +13,8 @@ The server can be run either locally or as a Docker container.
 
 ## Adding new detectors
 [A detailed guide for adding new detectors](./src/detection/README.md)
+<br>
+**Note** that detector execution time is being restricted to a reasonable amount of time.
 
 <br>
 

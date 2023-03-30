@@ -8,11 +8,10 @@ An object responsible for identifying certain behavior in a transaction.
 ## Class members
 1. `txContext` - A transaction inspection [object](#transaction-context).
 
-2. `inspectedProtocol` - A protocol `[object](#protocol).
+2. `inspectedProtocol` - A protocol [object](#protocol).
 
 3. `config` - Either `null` or a `json` config for your detector.
-<br>
-In case you wish to configure your detector differently depending on the inspected protocol, contact the `Ironblocks` and we will make sure to invoke your detector with the appropriate configuration. 
+In case you wish to configure your detector differently depending on the inspected protocol, contact the `Ironblocks` and we will make sure to invoke your detector with the appropriate configuration.
 
 4. `status` - The actual detection result:
    ```js

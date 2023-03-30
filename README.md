@@ -1,6 +1,6 @@
 # RPC Detection Service
 
-<img src="https://www.ironblocks.com/images/ironblocks-logo.svg" width="80">
+<img src="https://www.ironblocks.com/images/ironblocks-logo.svg" width="100">
 
 <br>
 
@@ -12,7 +12,7 @@ The server can be run either locally or as a Docker container.
 <br>
 
 ## Adding new detectors
-[A detailed guide for adding new detectors.](./src/detection/README.md)
+[A detailed guide for adding new detectors](./src/detection/README.md)
 
 <br>
 

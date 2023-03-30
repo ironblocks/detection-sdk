@@ -5,7 +5,7 @@ import type { DetectorClass } from '../detection/detectors/detector';
 import { getDetectorClass } from '../detection/factory';
 import TransactionInspectionContext from '../lib/transaction-context';
 
-export async function detectionHandler(req, callback) {
+export async function detectionHandler(req, callback): Promise<void> {
     const {
         detectorId,
         detectorConfig,

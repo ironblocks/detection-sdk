@@ -39,19 +39,19 @@ export default class DetectionServer {
         this.logger = getLogger(this.constructor.name);
     }
 
-    async start() {
+    async start(): Promise<void> {
         this.setup();
         this.bind();
     }
 
-    private async setup() {
+    private async setup(): Promise<void> {
         const service: DetectionDefinition = packageObject.Detection.service;
         this.server.addService(service, {
             runDetection: detectionHandler,
         });
     }
 
-    private bind() {
+    private bind(): void {
         this.server.bindAsync(
             this.listeningAddress,
             ServerCredentials.createInsecure(),

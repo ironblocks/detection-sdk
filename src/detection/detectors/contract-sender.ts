@@ -11,7 +11,7 @@ export default class ContractSenderDetector extends Detector {
     /**
      * @returns true iff the protocol was invoked by a contract address.
      */
-    isInvokedByContract() {
+    isInvokedByContract(): boolean {
         const { trace } = this.txContext;
         return !this.isCallToProtocol(trace);
     }

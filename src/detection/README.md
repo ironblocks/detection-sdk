@@ -25,12 +25,14 @@ To add a new detector just follow the following steps:
    }
    ```
 
-2. The `Ironblocks` team will provide you with a `unique-id` for the new detector, e.g.:
+2. Test your detector following the [guide](../../tests/unit-tests/detection/detectors/README.md).
+
+3. The `Ironblocks` team will provide you with a `unique-id` for the new detector, e.g.:
    ```bash
    "ib-1-12345"
    ```
 
-3. Add the detector to the [detectors factory](./factory.ts):
+4. Add the detector to the [detectors factory](./factory.ts):
    ```js
    // Import your detector here
    import ExampleDetector from "./detectors/example-detector";
@@ -49,7 +51,7 @@ To add a new detector just follow the following steps:
    }
    ```
 
-4. Build and restart:
+5. Build and restart:
    ```bash
    docker-compose build
    docker-compose up

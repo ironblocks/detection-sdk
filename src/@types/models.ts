@@ -1,4 +1,5 @@
 export interface Asset {
+    chainId: number,
     address: string,
     admins: Array<string>,
 }

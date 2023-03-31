@@ -3,7 +3,7 @@ import type { Asset, Protocol } from '../../@types/models';
 import type { Transaction, TransactionInspectionContext } from '../../@types/web3';
 import { Logger, getLogger } from '../../logger';
 
-type DetectorConfig = any;
+export type DetectorConfig = any;
 
 export enum DetectionStatus {
     DETECTED = 'detected',

@@ -11,7 +11,8 @@
     "scripts": {
         "build": "npx tsc --project ./",
         "postbuild": "rsync -ar --prune-empty-dirs --include=*.proto --exclude=*.ts src/ build/src/",
-        "start": "node ./build/src/main.js"
+        "start": "node ./build/src/main.js",
+        "test": "NODE_ENV=test ts-mocha -n loader=ts-node/esm -p tsconfig.json --exit --timeout 25000 'tests/unit-tests/**/*.ts'"
     },
     "dependencies": {
         "@grpc/grpc-js": "^1.8.13",
@@ -22,6 +23,9 @@
         "winston": "^3.8.2"
     },
     "devDependencies": {
+        "@types/mocha": "^10.0.1",
+        "mocha": "^10.2.0",
+        "ts-mocha": "^10.0.0",
         "typescript": "^5.0.2"
     }
 }

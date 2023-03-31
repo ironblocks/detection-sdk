@@ -79,6 +79,7 @@ An object wrapping essential transaction metadata, including:
 An object representation of a monitored `web3` address:
    ```js
    interface Asset {
+      chainId: number,
       address: string,
       admins: Array<string>,
    }

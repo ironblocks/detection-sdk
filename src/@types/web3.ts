@@ -20,6 +20,7 @@ export interface TransactionTrace extends Transaction {
 }
 
 export interface FetchedTransaction {
+    chainId: number,
     hash: string,
     timestamp: string,
     trace: TransactionTrace,

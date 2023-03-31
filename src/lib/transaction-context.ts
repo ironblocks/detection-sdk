@@ -15,6 +15,8 @@ interface ContextParams extends FetchedTransaction {
 }
 
 export default class TransactionInspectionContext implements ITransactionInspectionContext {
+    private _chainId: ContextParams['chainId'];
+
     private _hash: ContextParams['hash'];
 
     private _timestamp: ContextParams['timestamp'];
@@ -28,18 +30,24 @@ export default class TransactionInspectionContext implements ITransactionInspect
     private _addressToAssetMap: AddressToAssetMap;
 
     constructor({
+        chainId,
         hash,
         timestamp,
         trace,
         assets,
         protocol,
     }: ContextParams) {
+        this._chainId = chainId;
         this._hash = hash;
         this._timestamp = timestamp;
         this._trace = trace;
         this._assets = assets;
         this._protocol = protocol;
         this._addressToAssetMap = createAddressToAssetMap(this._assets);
+    }
+
+    get chainId(): ContextParams['chainId'] {
+        return this._chainId;
     }
 
     get hash(): ContextParams['hash'] {

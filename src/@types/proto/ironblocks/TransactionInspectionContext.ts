@@ -5,6 +5,7 @@ import type { Asset as _ironblocks_Asset, Asset__Output as _ironblocks_Asset__Ou
 import type { Protocol as _ironblocks_Protocol, Protocol__Output as _ironblocks_Protocol__Output } from '../ironblocks/Protocol';
 
 export interface TransactionInspectionContext {
+    'chainId'?: (number);
     'hash'?: (string);
     'timestamp'?: (string);
     'trace'?: (_ironblocks_TransactionTrace | null);
@@ -13,6 +14,7 @@ export interface TransactionInspectionContext {
 }
 
 export interface TransactionInspectionContext__Output {
+    'chainId': (number);
     'hash': (string);
     'timestamp': (string);
     'trace': (_ironblocks_TransactionTrace__Output | null);

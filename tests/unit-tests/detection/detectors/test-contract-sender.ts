@@ -29,7 +29,7 @@ export default function suite() {
             assert(detector.isDetected);
         });
 
-        it('should not detect for a protocol invocation from an externally owned address', async () => {
+        it('should not detect for a protocol invocation from an externally owned account (EOA)', async () => {
             const detector = await runDetection(
                 ContractSenderDetector,
                 eoaProtocolInvocationTrace,

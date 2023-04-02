@@ -25,14 +25,14 @@ The server can be run either locally or as a Docker container.
 
 ## Installation
 
-1. Clone the [repository](https://github.com/ironblocks/external-detection.git):
+1. Clone the [repository](https://github.com/ironblocks/detection-sdk.git):
    ```bash
-   git clone https://github.com/ironblocks/external-detection.git
+   git clone https://github.com/ironblocks/detection-sdk.git
    ```
 
 2. Change into the project directory:
    ```bash
-   cd external-detection
+   cd detection-sdk
    ```
 
 3. Install dependencies:

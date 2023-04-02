@@ -12,6 +12,7 @@ export function wrapTxContext(
     overrides?: Overrides,
 ): TransactionInspectionContext {
     return new TransactionInspectionContext({
+        chainId: 1,
         hash: trace?.hash ?? '0x0',
         timestamp: new Date().toISOString(),
         trace,

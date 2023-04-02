@@ -6,8 +6,6 @@ services:
           dockerfile: Dockerfile
       ports:
           - "80:8000"
-      volumes:
-          - .:/detection-service
       environment:
           NODE_ENV: development
           PORT: 8000

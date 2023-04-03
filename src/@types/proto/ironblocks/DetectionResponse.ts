@@ -1,6 +1,6 @@
 // Original file: src/rpc/proto/detection.proto
 
-import type { DetectionSubject as _ironblocks_DetectionSubject, DetectionSubject__Output as _ironblocks_DetectionSubject__Output } from '../ironblocks/DetectionSubject';
+import type { DetectionSubject as _ironblocks_DetectionSubject, DetectionSubject__Output as _ironblocks_DetectionSubject__Output } from './DetectionSubject';
 import type { Struct as _google_protobuf_Struct, Struct__Output as _google_protobuf_Struct__Output } from '../google/protobuf/Struct';
 
 export interface DetectionResponse {

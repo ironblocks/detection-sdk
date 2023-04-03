@@ -16,6 +16,7 @@ export default class ContractSenderDetector extends Detector {
         return !this.isCallToProtocol(trace);
     }
 
+    // eslint-disable-next-line class-methods-use-this
     formatDetectionMessage(): string {
         // Optional.
         return '';

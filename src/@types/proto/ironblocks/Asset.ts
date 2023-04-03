@@ -1,6 +1,5 @@
 // Original file: src/rpc/proto/detection.proto
 
-
 export interface Asset {
     'chainId'?: (number);
     'address'?: (string);

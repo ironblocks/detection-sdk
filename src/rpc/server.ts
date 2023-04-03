@@ -5,9 +5,8 @@ import { loadSync } from '@grpc/proto-loader';
 import { loadPackageDefinition, Server, ServerCredentials } from '@grpc/grpc-js';
 // Internal.
 import type { ProtoGrpcType } from '../@types/proto/detection';
-import type { DetectionDefinition } from '../@types/proto/ironblocks/Detection';
 import { Logger, getLogger } from '../logger';
-import { detectionHandler } from './handler';
+import detectionHandler from './handler';
 
 const PROTO_FILE_NAME = 'detection.proto';
 const PROTO_FILE_PATH = path.join(__dirname, 'proto', PROTO_FILE_NAME);
@@ -45,7 +44,7 @@ export default class DetectionServer {
     }
 
     private async setup(): Promise<void> {
-        const service: DetectionDefinition = packageObject.Detection.service;
+        const { service } = packageObject.Detection;
         this.server.addService(service, {
             runDetection: detectionHandler,
         });
@@ -63,8 +62,7 @@ export default class DetectionServer {
 
                 this.logger.info('Server listenning', { port });
                 this.server.start();
-            }
+            },
         );
     }
 }
-

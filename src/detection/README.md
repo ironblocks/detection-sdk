@@ -45,7 +45,7 @@ To add a new detector just follow the following steps:
    // Import your detector here
    import ContractSenderDetector from "./detectors/contract-sender";
 
-   export function getDetectorClass(id: string): DetectorClass {
+   export default function detectorFactory(id: string): DetectorClass {
       switch (id) {
       ...
       // Insert code (start)

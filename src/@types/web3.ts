@@ -1,5 +1,5 @@
 // Internal.
-import type { Asset, Protocol } from "./models";
+import type { Asset, Protocol } from './models';
 
 export interface Transaction {
     type: string,

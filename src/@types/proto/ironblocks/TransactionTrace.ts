@@ -1,7 +1,5 @@
 // Original file: src/rpc/proto/detection.proto
 
-import type { TransactionTrace as _ironblocks_TransactionTrace, TransactionTrace__Output as _ironblocks_TransactionTrace__Output } from '../ironblocks/TransactionTrace';
-
 export interface TransactionTrace {
     'type'?: (string);
     'from'?: (string);
@@ -12,7 +10,7 @@ export interface TransactionTrace {
     'error'?: (string);
     'gas'?: (string);
     'gasprice'?: (string);
-    'calls'?: (_ironblocks_TransactionTrace)[];
+    'calls'?: (TransactionTrace)[];
 }
 
 export interface TransactionTrace__Output {
@@ -25,5 +23,5 @@ export interface TransactionTrace__Output {
     'error': (string);
     'gas': (string);
     'gasprice': (string);
-    'calls': (_ironblocks_TransactionTrace__Output)[];
+    'calls': (TransactionTrace__Output)[];
 }

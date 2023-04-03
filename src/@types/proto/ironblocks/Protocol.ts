@@ -1,6 +1,6 @@
 // Original file: src/rpc/proto/detection.proto
 
-import type { Asset as _ironblocks_Asset, Asset__Output as _ironblocks_Asset__Output } from '../ironblocks/Asset';
+import type { Asset as _ironblocks_Asset, Asset__Output as _ironblocks_Asset__Output } from './Asset';
 
 export interface Protocol {
     'name'?: (string);

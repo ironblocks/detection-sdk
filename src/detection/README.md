@@ -11,11 +11,19 @@ To add a new detector just follow the following steps:
 1. Create a new file in the `detectors` folder and extend the base `Detector` [class](./detectors/detector.ts):
    ```js
    // Internal.
-   import Detector, { DetectionStatus } from './detector';
-
-   export default class ExampleDetector extends Detector {
+   export default class ContractSenderDetector extends Detector {
       detect(): void {
-         this.status = DetectionStatus.NOT_DETECTED;
+         this.status = this.isInvokedByContract()
+            ? DetectionStatus.DETECTED
+            : DetectionStatus.NOT_DETECTED;
+      }
+
+      /**
+       * @returns true iff the protocol was invoked by a contract address.
+      */
+      isInvokedByContract(): boolean {
+         const { trace } = this.txContext;
+         return !this.isCallToProtocol(trace);
       }
 
       formatDetectionMessage(): string {
@@ -35,14 +43,14 @@ To add a new detector just follow the following steps:
 4. Add the detector to the [detectors factory](./factory.ts):
    ```js
    // Import your detector here
-   import ExampleDetector from "./detectors/example-detector";
+   import ContractSenderDetector from "./detectors/contract-sender";
 
-   export function getDetectorClass(id: string): DetectorClass {
+   export default function detectorFactory(id: string): DetectorClass {
       switch (id) {
       ...
       // Insert code (start)
       case 'ib-1-12345':
-         return ExampleDetector;
+         return ContractSenderDetector;
       // Insert code (end)
       ...
       default:

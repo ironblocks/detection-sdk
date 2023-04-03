@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import type * as grpc from '@grpc/grpc-js';
 import type { EnumTypeDefinition, MessageTypeDefinition } from '@grpc/proto-loader';
 
@@ -27,4 +28,3 @@ export interface ProtoGrpcType {
       TransactionTrace: MessageTypeDefinition
     }
 }
-

@@ -1,8 +1,8 @@
 // Internal.
-import type { DetectorClass } from "./detectors/detector";
-import ContractSenderDetector from "./detectors/contract-sender";
+import type { DetectorClass } from './detectors/detector';
+import ContractSenderDetector from './detectors/contract-sender';
 
-export function getDetectorClass(id: string): DetectorClass {
+export default function detectorFactory(id: string): DetectorClass {
     switch (id) {
     case 'ib-1-1':
         return ContractSenderDetector;

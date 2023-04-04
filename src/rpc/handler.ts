@@ -8,7 +8,7 @@ import TransactionInspectionContext from '../lib/transaction-context';
 export default async function detectionHandler(req, callback): Promise<void> {
     const {
         detectorId,
-        detectorConfig,
+        detectorConfig, // Optional.
         txContext: rawTxContext,
     } = req.request as DetectionRequest__Output;
 
@@ -21,7 +21,7 @@ export default async function detectionHandler(req, callback): Promise<void> {
             txContext.protocol,
             detectorConfig,
         );
-        detector.runDetection();
+        await detector.runDetection();
 
         const response: DetectionResponse = {
             detected: detector.isDetected,

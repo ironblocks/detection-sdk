@@ -1,6 +1,6 @@
 # RPC Detection Service
 
-<img width="100" alt="image" src="https://github.com/ironblocks/detection-sdk/assets/108297139/ded376dc-1fba-4ee4-a57c-8a5d26bf6cde">
+<img width="100" alt="image" src="https://github.com/ironblocks/detection-sdk/assets/108297139/4a7443c9-4014-4c4e-8890-421526071861">
 <br>
 
 ## Description

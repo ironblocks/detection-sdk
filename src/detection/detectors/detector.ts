@@ -35,7 +35,9 @@ export default abstract class Detector {
         this.config = config;
         this.status = DetectionStatus.PENDING;
         this.isInvoked = false;
-        this.logger = getLogger(this.constructor.name);
+        this.logger = getLogger(this.constructor.name).child(
+            { txHash: txContext?.hash },
+        );
     }
 
     public get isDetected(): boolean {

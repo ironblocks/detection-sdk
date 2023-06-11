@@ -9,6 +9,6 @@ export interface Protocol {
     assets: Array<Asset>,
 }
 
-export interface AddressToAssetMap {
+export interface AssetMap {
     [key: string]: Asset,
 }

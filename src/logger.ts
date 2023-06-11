@@ -3,7 +3,7 @@ import process from 'process';
 // 3rd party.
 import { isEmpty } from 'lodash';
 import {
-    createLogger, format, transports, Logger,
+    createLogger, config, format, transports, Logger,
 } from 'winston';
 // Internal.
 import { logConfig } from './config';
@@ -12,6 +12,10 @@ export type { Logger } from 'winston';
 
 const loggerConfig = {
     level: 'info',
+    levels: {
+        ...config.npm.levels,
+        notice: config.npm.levels.error,
+    },
     format: format.combine(
         format.errors({ stack: true }),
         format.timestamp(),

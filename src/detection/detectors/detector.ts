@@ -21,9 +21,9 @@ export default abstract class Detector {
 
     protected status: DetectionStatus;
 
-    private isInvoked: boolean;
+    protected logger: Logger;
 
-    private logger: Logger;
+    private isInvoked: boolean;
 
     constructor(
         txContext?: TransactionInspectionContext,

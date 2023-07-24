@@ -1,8 +1,5 @@
 // Internal.
-import type {
-    AddressToAssetMap, Asset,
-    Protocol,
-} from '../@types/models';
+import type { AddressToAssetMap, Asset, Protocol } from '../@types/models';
 import type {
     FetchedTransaction,
     TransactionInspectionContext as ITransactionInspectionContext,
@@ -43,7 +40,7 @@ export default class TransactionInspectionContext implements ITransactionInspect
         this._trace = trace;
         this._assets = assets;
         this._protocol = protocol;
-        this._addressToAssetMap = createAddressToAssetMap(this._assets);
+        this._addressToAssetMap = createAddressToAssetMap(protocol.assets);
     }
 
     get chainId(): ContextParams['chainId'] {
@@ -74,6 +71,10 @@ export default class TransactionInspectionContext implements ITransactionInspect
         return this._addressToAssetMap[address] ?? null;
     }
 
+    /**
+     * @param address
+     * @returns True iff the address is part of the protocol.
+     */
     isAsset(address: string) {
         return !!this.asset(address);
     }

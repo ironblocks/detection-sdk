@@ -1,10 +1,10 @@
 // Internal.
-import type { AssetMap, Asset, Protocol } from '../@types/models';
+import type { AddressToAssetMap, Asset, Protocol } from '../@types/models';
 import type {
     FetchedTransaction,
     TransactionInspectionContext as ITransactionInspectionContext,
 } from '../@types/web3';
-import { createAssetMap } from './models';
+import { createAddressToAssetMap } from './models';
 
 interface ContextParams extends FetchedTransaction {
     assets: Array<Asset>,
@@ -24,7 +24,7 @@ export default class TransactionInspectionContext implements ITransactionInspect
 
     private _protocol: ContextParams['protocol'];
 
-    private _assetMap: AssetMap;
+    private _addressToAssetMap: AddressToAssetMap;
 
     constructor({
         chainId,
@@ -40,7 +40,7 @@ export default class TransactionInspectionContext implements ITransactionInspect
         this._trace = trace;
         this._assets = assets;
         this._protocol = protocol;
-        this._assetMap = createAssetMap(protocol.assets);
+        this._addressToAssetMap = createAddressToAssetMap(protocol.assets);
     }
 
     get chainId(): ContextParams['chainId'] {
@@ -68,7 +68,7 @@ export default class TransactionInspectionContext implements ITransactionInspect
     }
 
     asset(address: string): Asset | null {
-        return this._assetMap[address] ?? null;
+        return this._addressToAssetMap[address] ?? null;
     }
 
     /**

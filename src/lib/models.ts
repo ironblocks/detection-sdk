@@ -1,7 +1,7 @@
 // Internal.
-import type { AssetMap, Asset } from '../@types/models';
+import type { AddressToAssetMap, Asset } from '../@types/models';
 
-export function createAssetMap(assets: Array<Asset>): AssetMap {
+export function createAddressToAssetMap(assets: Array<Asset>): AddressToAssetMap {
     return Object.fromEntries(
         assets.map(
             (asset: Asset) => [asset.address.toLowerCase(), asset],

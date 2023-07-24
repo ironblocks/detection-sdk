@@ -1,6 +1,6 @@
 {
     "name": "detection-sdk",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Detection Software Development Kit",
     "engines": {
         "node": ">=16.15.1",

@@ -1,10 +1,10 @@
 // Internal.
-import { serverConfig } from './config';
-import DetectionServer from './rpc/server';
+import { serverConfig } from "./config";
+import DetectionServer from "./rpc/server";
 
 async function main(): Promise<void> {
-    const server = new DetectionServer(serverConfig.HOST, serverConfig.PORT);
-    await server.start();
+  const server = new DetectionServer(serverConfig.HOST, serverConfig.PORT);
+  await server.start();
 }
 
-main();
+main().catch(console.error);

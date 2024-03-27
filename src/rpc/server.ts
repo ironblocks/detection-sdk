@@ -2,7 +2,11 @@
 import path from 'path';
 // 3rd party.
 import { loadSync } from '@grpc/proto-loader';
-import { loadPackageDefinition, Server, ServerCredentials } from '@grpc/grpc-js';
+import {
+    loadPackageDefinition,
+    Server,
+    ServerCredentials,
+} from '@grpc/grpc-js';
 // Internal.
 import type { ProtoGrpcType } from '../@types/proto/detection';
 import { Logger, getLogger } from '../logger';
@@ -11,19 +15,15 @@ import detectionHandler from './handler';
 const PROTO_FILE_NAME = 'detection.proto';
 const PROTO_FILE_PATH = path.join(__dirname, 'proto', PROTO_FILE_NAME);
 
-const packageDefinition = loadSync(
-    PROTO_FILE_PATH,
-    {
-        keepCase: true,
-        longs: String,
-        enums: String,
-        defaults: true,
-        oneofs: true,
-    },
-);
-const packageObject = (
-    loadPackageDefinition(packageDefinition).ironblocks as unknown
-) as ProtoGrpcType['ironblocks'];
+const packageDefinition = loadSync(PROTO_FILE_PATH, {
+    keepCase: true,
+    longs: String,
+    enums: String,
+    defaults: true,
+    oneofs: true,
+});
+const packageObject = loadPackageDefinition(packageDefinition)
+    .ironblocks as unknown as ProtoGrpcType['ironblocks'];
 
 export default class DetectionServer {
     private listeningAddress: string;
@@ -60,9 +60,9 @@ export default class DetectionServer {
                     throw err;
                 }
 
-                this.logger.info('Server listenning', { port });
+                this.logger.info('Server listening', { port });
                 this.server.start();
-            },
+            }
         );
     }
 }

@@ -1,0 +1,5 @@
+{
+  "ext": "ts,json",
+  "exec": "clear; sleep 0.5; ts-node src/main.ts",
+  "watch": ["./", "src/**/*"]
+}

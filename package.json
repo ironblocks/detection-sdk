@@ -1,37 +1,40 @@
 {
-    "name": "detection-sdk",
-    "version": "1.0.1",
-    "description": "Detection Software Development Kit",
-    "engines": {
-        "node": ">=16.15.1",
-        "npm": ">=8.11.0"
-    },
-    "author": "Ironblocks",
-    "license": "ISC",
-    "scripts": {
-        "build": "npx tsc --project ./",
-        "postbuild": "rsync -ar --prune-empty-dirs --include=*.proto --exclude=*.ts src/ build/src/",
-        "start": "node ./build/src/main.js",
-        "lint": "eslint . --ext .ts",
-        "test": "NODE_ENV=test LOGGER_LEVEL=notice ts-mocha -n loader=ts-node/esm -p tsconfig.json --exit --timeout 25000 'tests/unit-tests/**/*.ts'"
-    },
-    "dependencies": {
-        "@grpc/grpc-js": "^1.8.13",
-        "@grpc/proto-loader": "^0.7.6",
-        "dotenv": "^16.0.3",
-        "lodash": "^4.17.21",
-        "ts-node": "^10.9.1",
-        "winston": "^3.8.2"
-    },
-    "devDependencies": {
-        "@types/mocha": "^10.0.1",
-        "@typescript-eslint/eslint-plugin": "^5.57.0",
-        "@typescript-eslint/parser": "^5.57.0",
-        "eslint": "^8.37.0",
-        "eslint-config-airbnb": "^19.0.4",
-        "eslint-plugin-import": "^2.27.5",
-        "mocha": "^10.2.0",
-        "ts-mocha": "^10.0.0",
-        "typescript": "^5.0.2"
-    }
+  "name": "detection-sdk",
+  "version": "1.0.1",
+  "description": "Detection Software Development Kit",
+  "engines": {
+    "node": ">=16.15.1",
+    "npm": ">=8.11.0"
+  },
+  "author": "Ironblocks",
+  "license": "ISC",
+  "scripts": {
+    "build": "npx tsc --project ./",
+    "postbuild": "rsync -ar --prune-empty-dirs --include=*.proto --exclude=*.ts src/ build/src/",
+    "start": "node ./build/src/main.js",
+    "dev": "ts-node src/main.ts",
+    "dev:watch": "nodemon --config nodemon.json",
+    "lint": "eslint . --ext .ts",
+    "test": "NODE_ENV=test LOGGER_LEVEL=notice ts-mocha -n loader=ts-node/esm -p tsconfig.json --exit --timeout 25000 'tests/unit-tests/**/*.ts'"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.13",
+    "@grpc/proto-loader": "^0.7.6",
+    "dotenv": "^16.0.3",
+    "lodash": "^4.17.21",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "eslint": "^8.37.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.27.5",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.1.0",
+    "ts-mocha": "^10.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.0.2"
+  }
 }
